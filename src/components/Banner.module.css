@@ -1,0 +1,29 @@
+
+.header_bg {
+  position: absolute;
+  top: -100px;
+  height: 400px;
+  width: 100%;
+  background-image: url(../meals.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: skewY( -5deg);
+}
+
+
+.mission {
+  position: relative;
+  top: 180px;
+  margin: 0 auto;
+  padding: 1rem 0.7rem 0.5rem;
+  border-radius: 0.8rem;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  width: min(85%, 38rem);
+  background: var(--bg-mission);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 300;
+}
+
+

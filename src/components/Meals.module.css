@@ -1,0 +1,16 @@
+.wrapper {
+  background: var(--bg-card);
+  margin: 210px auto 0;
+  width: min(90%, 48rem);
+  border-radius: 1rem;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem 0 1rem;
+}
+
+ul {
+  list-style: none;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+

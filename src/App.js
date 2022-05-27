@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react'
+import OrderContext from './store/order-context'
+import MainHeader from './components/MainHeader'
+import Banner from './components/Banner'
+import Meals from './components/Meals'
+import styles from './App.module.css'
 
+// const URL = 'http://localhost:3001/DUMMY_MEALS'
 function App() {
+  const ctx = useContext(OrderContext)
+  // useEffect(() => {
+  //   fetch(URL)
+  //     .then(response => response.json())
+  //     .then(data => setMeals(data))
+  // }, [])
+
+  // const [meals, setMeals] = useState()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.wrapper}>
+      <MainHeader />
+      <Banner />
+      {ctx.menu.length > 0 && <Meals meals={ctx.menu} />}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

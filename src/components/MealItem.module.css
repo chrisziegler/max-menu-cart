@@ -1,0 +1,59 @@
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  border-bottom: 1px solid rgba(0,0,0, 0.2);
+  font-size: 1rem;
+}
+
+p {
+  margin: 0.5rem;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.description {
+  font-style: oblique;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.amount {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.add_item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+input {
+  width: 2.4rem;
+  margin-left: 1rem;
+}
+
+
+
+.add_to_cart {
+  display: block;
+  width: 6rem;
+  color: white;
+  background: var(--primary-color);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  padding: 0.2rem 1.1rem;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.11em rgba(255,255,255,0.25);
+  border-radius: 0.8rem;
+}
