@@ -6,7 +6,9 @@ import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <OrderContextProvider>
-    <App />
-  </OrderContextProvider>,
+  <React.StrictMode>
+    <OrderContextProvider>
+      <App />
+    </OrderContextProvider>
+  </React.StrictMode>,
 )

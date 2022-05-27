@@ -18,7 +18,6 @@ const Meals = ({ meals }) => {
             name={meal.name}
             description={meal.description}
             price={meal.price}
-            addToCart={addMenuItem}
           />
         ))}
       </ul>

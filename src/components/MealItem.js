@@ -1,24 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import OrderContext from '../store/order-context'
 import styles from './MealItem.module.css'
 
-const MealItem = ({ name, description, price, addToCart }) => {
+const MealItem = ({ name, description, price }) => {
   const [count, setCount] = useState(0)
+
+  const ctx = useContext(OrderContext)
 
   const itemInputHandler = event => {
     const { value } = event.target
-    const { name } = event.target
-    setCount(value)
-    addToCart({ [name]: value })
+    // const { name } = event.target
+    const numVal = parseInt(value, 10)
+    setCount(numVal)
+    ctx.addToCart({ name: name, price: price, count: numVal })
   }
 
   const addHandler = event => {
-    // doesn't have a value
-    // should just update count so value is reflected in input
-    setCount(prevState => {
-      let countNum = parseInt(prevState, 10)
-      return (countNum += 1)
-    })
+    const { value } = event.target
+    let numVal = parseInt(value, 10)
+    setCount((numVal += 1))
+    ctx.addToCart({ name: name, price: price, count: numVal })
   }
+
   return (
     <li>
       <div className="menu_item">
@@ -39,6 +42,7 @@ const MealItem = ({ name, description, price, addToCart }) => {
         <button
           type="button"
           name={name}
+          value={count}
           className={styles.add_to_cart}
           onClick={addHandler}>
           + Add
