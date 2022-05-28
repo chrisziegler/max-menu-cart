@@ -3,9 +3,8 @@ import styles from './Banner.module.css'
 
 const Banner = () => {
   return (
-    <>
+    <div className={styles.banner}>
       <div className={styles.header_bg}></div>
-
       <div className={styles.mission}>
         <h1>Delicious Food, Delivered To You</h1>
         <p>
@@ -18,7 +17,7 @@ const Banner = () => {
           just-in-time and of course by experienced chefs!
         </p>
       </div>
-    </>
+    </div>
   )
 }
 

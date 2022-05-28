@@ -1,7 +1,10 @@
+.banner {
+  height: 310px;
+}
 
 .header_bg {
-  position: absolute;
-  top: -100px;
+  position: relative;
+  top: -220px;
   height: 400px;
   width: 100%;
   background-image: url(../meals.jpg);
@@ -10,10 +13,9 @@
   transform: skewY( -5deg);
 }
 
-
 .mission {
   position: relative;
-  top: 180px;
+  top: -275px;
   margin: 0 auto;
   padding: 1rem 0.7rem 0.5rem;
   border-radius: 0.8rem;
@@ -26,4 +28,8 @@
   font-weight: 300;
 }
 
-
+@media (max-width: 480px) {
+  .banner {
+    height: 350px;
+  }
+}

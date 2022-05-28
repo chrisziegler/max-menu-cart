@@ -1,6 +1,7 @@
 .wrapper {
   background: var(--bg-card);
-  margin: 210px auto 0;
+  /* margin: 210px auto 0; */
+  margin: 0 auto;
   width: min(90%, 48rem);
   border-radius: 1rem;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);

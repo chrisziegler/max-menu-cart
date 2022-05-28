@@ -1,0 +1,102 @@
+.wrapper {
+  background: var(--bg-card);
+  /* margin: 210px auto 0; */
+  margin: 1rem auto 0;
+  width: min(80%, 38rem);
+  border-radius: 1rem;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem 0 1rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wrapper li {
+  display: flex;
+  padding: 0 1rem 0.5rem 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.controller {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}
+
+.controller > *+* {
+  margin-left: 1rem;
+}
+
+.button_close, .button_order {
+  width: 6rem;
+  color: white;
+  background: var(--primary-color);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  padding: 0.2rem 1.1rem;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.11em rgba(255,255,255,0.25); */
+  border-radius: 0.8rem;
+}
+
+.order_name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.order_price {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-right: 3rem;
+}
+
+.order_count {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  line-height: 1.2;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.button_close {
+  background: white;
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+
+.order_right > *+* {
+  margin-left: 0.4rem;
+}
+
+/* .order_left {
+  
+} */
+.button_plus, .button_minus {
+  color: var(--primary-color);
+  background-color: #FFFFFF;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.25rem;
+  line-height: 1.1;
+  padding: 0 0.2rem;
+  width: 2rem;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.button_plus:hover, .button_minus:hover {
+  color: white;
+  background-color: var(--primary-color);
+  border: 1px solid var(--secondary-color);
+}

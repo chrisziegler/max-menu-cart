@@ -9,7 +9,6 @@ const MealItem = ({ name, description, price }) => {
 
   const itemInputHandler = event => {
     const { value } = event.target
-    // const { name } = event.target
     const numVal = parseInt(value, 10)
     setCount(numVal)
     ctx.addToCart({ name: name, price: price, count: numVal })
@@ -43,7 +42,7 @@ const MealItem = ({ name, description, price }) => {
           type="button"
           name={name}
           value={count}
-          className={styles.add_to_cart}
+          className={styles.button_add}
           onClick={addHandler}>
           + Add
         </button>
