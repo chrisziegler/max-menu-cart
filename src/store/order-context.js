@@ -3,7 +3,10 @@ import React, { createContext, useState, useEffect } from 'react'
 const OrderContext = createContext({
   menu: null,
   cart: null,
+  totals: null,
+  modalIsVisible: false,
   addToCart: () => {},
+  toggleModal: () => {},
 })
 
 const URL = 'http://localhost:3001/DUMMY_MEALS'
@@ -19,6 +22,24 @@ export const OrderContextProvider = props => {
 
   const [menu, setMenu] = useState()
   const [cart, setCart] = useState([])
+  const [modalIsVisible, setModalIsVisible] = useState(false)
+  const [totals, setTotals] = useState({
+    amount: 0,
+    count: 0,
+  })
+
+  useEffect(() => {
+    if (cart.length >= 1) {
+      const sum = (acc, cur) => {
+        acc.amount =
+          (acc.amount * 100 + cur.price * 100 * cur.count) / 100
+        acc.count += cur.count
+        return acc
+      }
+      const orderSummary = cart.reduce(sum, { amount: 0, count: 0 })
+      setTotals(orderSummary)
+    }
+  }, [cart])
 
   const addToCart = order => {
     if (cart && cart.some(item => item.name === order.name)) {
@@ -28,8 +49,12 @@ export const OrderContextProvider = props => {
       const updatedArr = filteredArr.concat(order)
       setCart(updatedArr)
     } else {
-      setCart(cart.concat(order))
+      setCart(prevState => prevState.concat(order))
     }
+  }
+
+  const toggleModal = () => {
+    setModalIsVisible(prevState => !prevState)
   }
 
   return (
@@ -37,7 +62,10 @@ export const OrderContextProvider = props => {
       value={{
         menu: menu,
         cart: cart,
+        totals: totals,
         addToCart: addToCart,
+        modalIsVisible: modalIsVisible,
+        toggleModal: toggleModal,
       }}>
       {props.children}
     </OrderContext.Provider>

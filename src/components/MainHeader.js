@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import OrderContext from '../store/order-context'
 import styles from './MainHeader.module.css'
 import { FaShoppingCart } from 'react-icons/fa'
 
 const MainHeader = () => {
+  const ctx = useContext(OrderContext)
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.brand}>ReactMeals</div>
       <span></span>
-      <div className={styles.checkout}>
+      <div className={styles.checkout} onClick={ctx.toggleModal}>
         <div>
           <FaShoppingCart />
         </div>
         <div>Your Cart</div>
-        <div className={styles.item_count}>0</div>
+        <div className={styles.item_count}>{ctx.totals.count}</div>
       </div>
     </div>
   )

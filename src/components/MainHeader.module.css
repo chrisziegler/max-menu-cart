@@ -31,6 +31,7 @@
   font-size: 0.9rem;
   text-align: center;
   padding: 0.4rem 0.8rem;
+  cursor: pointer;
 }
 
 .item_count {

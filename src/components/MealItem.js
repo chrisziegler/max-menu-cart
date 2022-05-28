@@ -3,26 +3,24 @@ import OrderContext from '../store/order-context'
 import styles from './MealItem.module.css'
 
 const MealItem = ({ name, description, price }) => {
-  const [count, setCount] = useState(0)
+  const [inputCount, setInputCount] = useState(0)
 
   const ctx = useContext(OrderContext)
 
-  const itemInputHandler = event => {
+  const inputHandler = event => {
     const { value } = event.target
     const numVal = parseInt(value, 10)
-    setCount(numVal)
-    ctx.addToCart({ name: name, price: price, count: numVal })
+    setInputCount(numVal)
   }
 
-  const addHandler = event => {
-    const { value } = event.target
-    let numVal = parseInt(value, 10)
-    setCount((numVal += 1))
-    ctx.addToCart({ name: name, price: price, count: numVal })
+  const addHandler = () => {
+    if (inputCount > 0) {
+      ctx.addToCart({ name: name, price: price, count: inputCount })
+    }
   }
 
   return (
-    <li>
+    <li className={styles.li}>
       <div className="menu_item">
         <p className={styles.name}>{name}</p>
         <p className={styles.description}>{description}</p>
@@ -35,13 +33,13 @@ const MealItem = ({ name, description, price }) => {
             type="number"
             name={name}
             id="item_count"
-            value={count}
-            onChange={itemInputHandler}></input>
+            value={inputCount}
+            onChange={inputHandler}></input>
         </label>
         <button
           type="button"
           name={name}
-          value={count}
+          value={inputCount}
           className={styles.button_add}
           onClick={addHandler}>
           + Add

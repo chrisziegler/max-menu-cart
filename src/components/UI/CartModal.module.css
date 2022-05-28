@@ -1,17 +1,40 @@
-.wrapper {
+.backdrop {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background:rgba(0, 0, 0, 0.8)
+}
+
+.container {
+  position: fixed;
+  z-index: 100;
+  margin: 400px auto;
+  left: 0;
+  right: 0;
   background: var(--bg-card);
+  overflow: hidden;
   /* margin: 210px auto 0; */
-  margin: 1rem auto 0;
   width: min(80%, 38rem);
   border-radius: 1rem;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
   padding: 1rem 0 1rem;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.container.empty_cart {
+  height: 140px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.cart_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem 1rem;
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .wrapper li {
@@ -20,13 +43,21 @@ ul {
   margin-bottom: 0.3rem;
 }
 
-.controller {
+.controller_top {
+ display: flex;
+ justify-content: space-between;
+ margin: 0.5rem 1rem;
+ font-weight: 700;
+ font-size: 1.2rem;
+}
+
+.controller_bottom {
   display: flex;
   justify-content: flex-end;
   margin-right: 1rem;
 }
 
-.controller > *+* {
+.controller_bottom > *+* {
   margin-left: 1rem;
 }
 
@@ -47,7 +78,7 @@ ul {
 
 .order_name {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
 }
 
@@ -62,9 +93,10 @@ ul {
 .order_count {
   display: inline-block;
   padding: 0.1rem 0.6rem;
-  line-height: 1.2;
-  font-size: 0.9rem;
-  font-weight: 700;
+  line-height: 1.3;
+  font-size: 0.8rem;
+  letter-spacing: 0.3ch;
+  font-weight: 600;
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -80,9 +112,10 @@ ul {
   margin-left: 0.4rem;
 }
 
-/* .order_left {
+.order_left {
   
-} */
+}
+
 .button_plus, .button_minus {
   color: var(--primary-color);
   background-color: #FFFFFF;

@@ -1,5 +1,5 @@
 .banner {
-  height: 310px;
+  height: 320px;
 }
 
 .header_bg {
@@ -15,7 +15,7 @@
 
 .mission {
   position: relative;
-  top: -275px;
+  top: -290px;
   margin: 0 auto;
   padding: 1rem 0.7rem 0.5rem;
   border-radius: 0.8rem;
