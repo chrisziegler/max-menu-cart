@@ -45,33 +45,39 @@ const ModalOverlay = () => {
         className={styles.backdrop}
         onClick={ctx.toggleModal}></div>
       <ul className={styles.container}>
-        {ctx.cart.map(({ name, price, count }) => (
-          <li key={name} className={styles.cart_item}>
-            <div className={styles.order_left}>
-              <div className={styles.order_name}>{name}</div>
-              <div className={styles.order_price}>
-                ${price.toFixed(2)}
+        {ctx.cart
+          .sort((a, b) =>
+            a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1,
+          )
+          .map(({ name, price, count }) => (
+            <li key={name} className={styles.cart_item}>
+              <div className={styles.order_left}>
+                <div className={styles.order_name}>{name}</div>
+                <div className={styles.order_price}>
+                  ${price.toFixed(2)}
+                </div>
+                <div className={styles.order_count}>
+                  <div>x{count}</div>
+                </div>
               </div>
-              <div className={styles.order_count}>
-                <div>x{count}</div>
+              <div className={styles.order_right}>
+                <button
+                  className={styles.button_minus}
+                  onClick={() =>
+                    handleSubtractFromOrder(name, price, count)
+                  }>
+                  &ndash;
+                </button>
+                <button
+                  className={styles.button_plus}
+                  onClick={() =>
+                    handleAddToOrder(name, price, count)
+                  }>
+                  +
+                </button>
               </div>
-            </div>
-            <div className={styles.order_right}>
-              <button
-                className={styles.button_minus}
-                onClick={() =>
-                  handleSubtractFromOrder(name, price, count)
-                }>
-                &ndash;
-              </button>
-              <button
-                className={styles.button_plus}
-                onClick={() => handleAddToOrder(name, price, count)}>
-                +
-              </button>
-            </div>
-          </li>
-        ))}
+            </li>
+          ))}
         <div className={styles.controller}>
           <div className={styles.controller_top}>
             <div>Total Amount</div>
