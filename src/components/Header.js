@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import OrderContext from '../store/order-context'
-import styles from './MainHeader.module.css'
+import styles from './Header.module.css'
 import { FaShoppingCart } from 'react-icons/fa'
 
-const MainHeader = () => {
+const Header = () => {
   const ctx = useContext(OrderContext)
 
   return (
@@ -21,4 +21,4 @@ const MainHeader = () => {
   )
 }
 
-export default MainHeader
+export default Header

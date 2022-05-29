@@ -3,7 +3,7 @@ import OrderContext from '../store/order-context'
 import styles from './MealItem.module.css'
 
 const MealItem = ({ name, description, price }) => {
-  const [inputCount, setInputCount] = useState(0)
+  const [inputCount, setInputCount] = useState(1)
 
   const ctx = useContext(OrderContext)
 
@@ -13,9 +13,11 @@ const MealItem = ({ name, description, price }) => {
     setInputCount(numVal)
   }
 
-  const addHandler = () => {
+  const addHandler = e => {
+    e.preventDefault()
     if (inputCount > 0) {
       ctx.addToCart({ name: name, price: price, count: inputCount })
+      setInputCount(1)
     }
   }
 
@@ -26,25 +28,25 @@ const MealItem = ({ name, description, price }) => {
         <p className={styles.description}>{description}</p>
         <p className={styles.price}>${price.toFixed(2)}</p>
       </div>
-      <div className={styles.add_item}>
+      <form className={styles.add_item} onSubmit={addHandler}>
         <label htmlFor="item_count" className={styles.amount}>
           Amount
           <input
             type="number"
+            min="1"
             name={name}
             id="item_count"
             value={inputCount}
             onChange={inputHandler}></input>
         </label>
         <button
-          type="button"
+          type="submit"
           name={name}
           value={inputCount}
-          className={styles.button_add}
-          onClick={addHandler}>
+          className={styles.button_add}>
           + Add
         </button>
-      </div>
+      </form>
     </li>
   )
 }

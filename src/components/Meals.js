@@ -3,10 +3,9 @@ import MealItem from './MealItem'
 import styles from './Meals.module.css'
 
 const Meals = ({ meals }) => {
-  const [orderedMeals, setOrderedMeals] = useState(null)
-
-  const addMenuItem = mealObj => {
-    console.log(mealObj)
+  const [inputCount, setInputCount] = useState(0)
+  const changeCount = num => {
+    setInputCount(num)
   }
 
   return (
@@ -18,6 +17,8 @@ const Meals = ({ meals }) => {
             name={meal.name}
             description={meal.description}
             price={meal.price}
+            inputCount={inputCount}
+            changeCount={changeCount}
           />
         ))}
       </ul>

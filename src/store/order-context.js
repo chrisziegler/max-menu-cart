@@ -4,7 +4,7 @@ const OrderContext = createContext({
   menu: null,
   cart: null,
   totals: null,
-  modalIsVisible: false,
+  clearCart: () => {},
   addToCart: () => {},
   toggleModal: () => {},
 })
@@ -57,6 +57,11 @@ export const OrderContextProvider = props => {
     setModalIsVisible(prevState => !prevState)
   }
 
+  const clearCart = () => {
+    setCart([])
+    setTotals({ amount: 0, count: 0 })
+  }
+
   return (
     <OrderContext.Provider
       value={{
@@ -66,6 +71,7 @@ export const OrderContextProvider = props => {
         addToCart: addToCart,
         modalIsVisible: modalIsVisible,
         toggleModal: toggleModal,
+        clearCart: clearCart,
       }}>
       {props.children}
     </OrderContext.Provider>

@@ -16,6 +16,16 @@ const ModalOverlay = () => {
     ctx.addToCart({ name: name, price: price, count: (count -= 1) })
   }
 
+  const handleOrder = total => {
+    console.log(
+      `Thanks, your order for $${total.toFixed(
+        2,
+      )} will be ready in 30 minutes.`,
+    )
+    ctx.toggleModal()
+    ctx.clearCart()
+  }
+
   if (ctx.totals.count === 0) {
     return (
       <>
@@ -81,7 +91,7 @@ const ModalOverlay = () => {
         <div className={styles.controller}>
           <div className={styles.controller_top}>
             <div>Total Amount</div>
-            <div>${ctx.totals.amount}</div>
+            <div>${ctx.totals.amount.toFixed(2)}</div>
           </div>
           <div className={styles.controller_bottom}>
             <button
@@ -90,7 +100,10 @@ const ModalOverlay = () => {
               onClick={ctx.toggleModal}>
               Close
             </button>
-            <button type="button" className={styles.button_order}>
+            <button
+              type="button"
+              className={styles.button_order}
+              onClick={() => handleOrder(ctx.totals.amount)}>
               Order
             </button>
           </div>
