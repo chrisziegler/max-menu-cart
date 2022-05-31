@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import OrderContext from '../store/order-context'
 import styles from './MealItem.module.css'
 
-const MealItem = ({ name, description, price }) => {
+const MealItem = ({ name, description, price, id }) => {
   const [inputCount, setInputCount] = useState(1)
 
   const ctx = useContext(OrderContext)
@@ -29,13 +29,13 @@ const MealItem = ({ name, description, price }) => {
         <p className={styles.price}>${price.toFixed(2)}</p>
       </div>
       <form className={styles.add_item} onSubmit={addHandler}>
-        <label htmlFor="item_count" className={styles.amount}>
+        <label htmlFor={`item_count_${id}`} className={styles.amount}>
           Amount
           <input
             type="number"
             min="1"
             name={name}
-            id="item_count"
+            id={`item_count_${id}`}
             value={inputCount}
             onChange={inputHandler}></input>
         </label>

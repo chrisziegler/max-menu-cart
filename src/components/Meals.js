@@ -11,6 +11,7 @@ const Meals = ({ meals }) => {
   const menu = meals.map(meal => (
     <MealItem
       key={meal.id}
+      id={meal.id}
       name={meal.name}
       description={meal.description}
       price={meal.price}
@@ -20,9 +21,9 @@ const Meals = ({ meals }) => {
   ))
 
   return (
-    <div className={styles.wrapper}>
+    <section className={styles.menu}>
       <ul>{menu}</ul>
-    </div>
+    </section>
   )
 }
 
