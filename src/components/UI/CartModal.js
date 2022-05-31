@@ -7,6 +7,7 @@ const Backdrop = () => <div className={styles.container}></div>
 
 const ModalOverlay = () => {
   const ctx = useContext(OrderContext)
+  let cartCopy = [...ctx.cart]
 
   const handleAddToOrder = (name, price, count) => {
     ctx.addToCart({ name: name, price: price, count: (count += 1) })
@@ -55,7 +56,7 @@ const ModalOverlay = () => {
         className={styles.backdrop}
         onClick={ctx.toggleModal}></div>
       <ul className={styles.container}>
-        {ctx.cart
+        {cartCopy
           .sort((a, b) =>
             a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1,
           )

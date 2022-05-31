@@ -8,20 +8,20 @@ const Meals = ({ meals }) => {
     setInputCount(num)
   }
 
+  const menu = meals.map(meal => (
+    <MealItem
+      key={meal.id}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+      inputCount={inputCount}
+      changeCount={changeCount}
+    />
+  ))
+
   return (
     <div className={styles.wrapper}>
-      <ul>
-        {meals.map(meal => (
-          <MealItem
-            key={meal.id}
-            name={meal.name}
-            description={meal.description}
-            price={meal.price}
-            inputCount={inputCount}
-            changeCount={changeCount}
-          />
-        ))}
-      </ul>
+      <ul>{menu}</ul>
     </div>
   )
 }
