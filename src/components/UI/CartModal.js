@@ -10,11 +10,11 @@ const ModalOverlay = () => {
   let cartCopy = [...ctx.cart]
 
   const handleAddToOrder = (name, price, count) => {
-    ctx.addToCart({ name: name, price: price, count: (count += 1) })
+    ctx.addToCart({ name: name, price: price, count: 1 })
   }
 
   const handleSubtractFromOrder = (name, price, count) => {
-    ctx.addToCart({ name: name, price: price, count: (count -= 1) })
+    ctx.addToCart({ name: name, price: price, count: -1 })
   }
 
   const handleOrder = total => {

@@ -11,7 +11,7 @@
 .container {
   position: fixed;
   z-index: 100;
-  margin: 30vh auto;
+  margin: 25vh auto;
   left: 0;
   right: 0;
   background: var(--bg-card);

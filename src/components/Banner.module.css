@@ -30,6 +30,9 @@
 
 @media (max-width: 480px) {
   .banner {
-    height: 350px;
+    height: 290px;
+  }
+  .mission {
+    top: -310px;
   }
 }
