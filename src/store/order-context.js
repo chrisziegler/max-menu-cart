@@ -1,27 +1,8 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import OrderContext from './OrderContext'
 import { MENU } from '../menu'
 
-const OrderContext = createContext({
-  menu: null,
-  cart: null,
-  totals: null,
-  clearCart: () => {},
-  addToCart: () => {},
-  toggleModal: () => {},
-})
-
-// const URL = 'http://localhost:3001/DUMMY_MEALS'
-
 export const OrderContextProvider = props => {
-  // useEffect(() => {
-  //   fetch(URL)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setMenu(data)
-  //     })
-  // }, [])
-
-  // const [menu, setMenu] = useState()
   const [cart, setCart] = useState([])
   const [modalIsVisible, setModalIsVisible] = useState(false)
   const [totals, setTotals] = useState({
@@ -42,18 +23,6 @@ export const OrderContextProvider = props => {
     }
   }, [cart])
 
-  // const addToCartOriginal = order => {
-  //   if (cart && cart.some(item => item.name === order.name)) {
-  //     const filteredArr = cart.filter(
-  //       item => item.name !== order.name,
-  //     )
-  //     const updatedArr = filteredArr.concat(order)
-  //     setCart(updatedArr)
-  //   } else {
-  //     setCart(prevState => prevState.concat(order))
-  //   }
-  // }
-
   const addToCart = order => {
     if (cart && cart.some(item => item.name === order.name)) {
       const updatedCart = cart.map(item => {
@@ -67,19 +36,6 @@ export const OrderContextProvider = props => {
       setCart(cart.concat(order))
     }
   }
-
-  // const addToCartNew = order => {
-  //   if (order.count === 1) {
-  //     if (cart.map(item => item.name === order.name)) {
-  //       const filteredArr = cart.filter(
-  //         item => item.name !== order.name,
-  //       )
-  //       order.count = item.coount += 1
-  //       setCart(filteredArr.concat(order))
-  //     } else {
-
-  //     }
-  //   }
 
   const toggleModal = () => {
     setModalIsVisible(prevState => !prevState)

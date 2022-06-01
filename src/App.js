@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import OrderContext from './store/order-context'
-import Header from './components/Header'
+import Header from './components/UI/Header'
 import Banner from './components/Banner'
 import Meals from './components/Meals'
 import CartModal from './components/UI/CartModal'

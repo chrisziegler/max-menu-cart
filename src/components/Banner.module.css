@@ -7,7 +7,7 @@
   top: -220px;
   height: 400px;
   width: 100%;
-  background-image: url(../meals.jpg);
+  background-image: url(../assets/meals.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   transform: skewY( -5deg);

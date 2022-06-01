@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import OrderContext from '../store/order-context'
+import OrderContext from '../../store/order-context'
 import styles from './Header.module.css'
 import { FaShoppingCart } from 'react-icons/fa'
 
