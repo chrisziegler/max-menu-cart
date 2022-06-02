@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
-import OrderContext from '../../store/order-context'
+import OrderContext from '../../store/OrderContext'
 import styles from './CartModal.module.css'
 
 const Backdrop = () => <div className={styles.container}></div>
@@ -39,11 +39,11 @@ const ModalOverlay = () => {
             to the cart!
           </p>
           <div className={styles.controller}>
-            <button type="button" className={styles.button_close}>
+            <button
+              type="button"
+              className={styles.button_close}
+              onClick={ctx.toggleModal}>
               Close
-            </button>
-            <button type="button" className={styles.button_order}>
-              Order
             </button>
           </div>
         </div>

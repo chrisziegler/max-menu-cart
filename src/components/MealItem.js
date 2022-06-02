@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react'
-import OrderContext from '../store/order-context'
+import OrderContext from '../store/OrderContext'
 import styles from './MealItem.module.css'
 
 const MealItem = ({ name, description, price, id }) => {
   const [inputCount, setInputCount] = useState(1)
-  const [countInCart, setCountInCart] = useState()
+  const [countInCart, setCountInCart] = useState(0)
 
   const ctx = useContext(OrderContext)
 
@@ -15,6 +15,9 @@ const MealItem = ({ name, description, price, id }) => {
       }
       return null
     })
+    if (ctx.cart.length === 0) {
+      setCountInCart(0)
+    }
   }, [ctx.cart, name])
 
   const inputHandler = event => {
@@ -38,19 +41,18 @@ const MealItem = ({ name, description, price, id }) => {
         <p className={styles.description}>{description}</p>
         <div className={styles.count_wrapper}>
           <p className={styles.price}>${price.toFixed(2)}</p>
-          {countInCart && (
+          {countInCart > 0 && (
             <span className={styles.order_count}>x{countInCart}</span>
           )}
         </div>
       </div>
       <form className={styles.add_item} onSubmit={addHandler}>
-        <label htmlFor={`item_count_${id}`} className={styles.amount}>
+        <label className={styles.amount}>
           Amount
           <input
             type="number"
             min="1"
             name={name}
-            id={`item_count_${id}`}
             value={inputCount}
             onChange={inputHandler}></input>
         </label>

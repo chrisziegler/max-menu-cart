@@ -24,7 +24,7 @@ export const OrderContextProvider = props => {
   }, [cart])
 
   const addToCart = order => {
-    if (cart && cart.some(item => item.name === order.name)) {
+    if (cart.some(item => item.name === order.name)) {
       const updatedCart = cart.map(item => {
         if (item.name === order.name) {
           item.count += order.count
@@ -61,5 +61,3 @@ export const OrderContextProvider = props => {
     </OrderContext.Provider>
   )
 }
-
-export default OrderContext

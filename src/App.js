@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import OrderContext from './store/order-context'
+import OrderContext from './store/OrderContext'
 import Header from './components/UI/Header'
 import Banner from './components/Banner'
 import Meals from './components/Meals'
